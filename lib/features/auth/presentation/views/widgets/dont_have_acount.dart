@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
 import 'package:fruits_hub/core/utils/app_text_style.dart';
+import 'package:fruits_hub/features/auth/presentation/views/register_view.dart';
 
 class DontHaveAcountWidget extends StatelessWidget {
   const DontHaveAcountWidget({super.key});
@@ -10,10 +12,18 @@ class DontHaveAcountWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: 'لا تمتلك حساب؟', style: TextStyles.semiBold16),
+          TextSpan(
+            text: 'لا تمتلك حساب؟',
+            style: TextStyles.semiBold16.copyWith(color: Color(0xff949D9E)),
+          ),
           TextSpan(text: ' ', style: TextStyles.semiBold16),
           TextSpan(
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pushNamed(context, RegisterView.routeName);
+              },
             text: 'قم بإنشاء حساب',
+
             style: TextStyles.semiBold16.copyWith(
               color: AppColors.primaryColor,
             ),
