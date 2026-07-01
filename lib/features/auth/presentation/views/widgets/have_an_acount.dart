@@ -2,8 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
 import 'package:fruits_hub/core/utils/app_text_style.dart';
-import 'package:fruits_hub/features/auth/presentation/views/login_view.dart';
-import 'package:fruits_hub/features/auth/presentation/views/register_view.dart';
 
 class HaveAnAcount extends StatelessWidget {
   const HaveAnAcount({super.key});

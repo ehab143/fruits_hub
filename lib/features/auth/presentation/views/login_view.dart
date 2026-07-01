@@ -4,7 +4,7 @@ import 'package:fruits_hub/core/services/get_it_service.dart';
 import 'package:fruits_hub/core/widgets/custom_app_bar.dart';
 import 'package:fruits_hub/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
-import 'package:fruits_hub/features/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:fruits_hub/features/auth/presentation/views/widgets/login_view_body_bloc_consumer.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -15,7 +15,7 @@ class LoginView extends StatelessWidget {
       create: (context) => LoginCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: buildAppBar(context, text: 'تسجيل دخول'),
-        body: LoginViewBody(),
+        body: LoginViewBodyBlocConsumer(),
       ),
     );
   }

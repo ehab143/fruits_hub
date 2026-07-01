@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hub/core/errors/failure.dart';
 import 'package:fruits_hub/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/login_cubit/login_states.dart';
 
@@ -12,6 +13,32 @@ class LoginCubit extends Cubit<LoginStates> {
     result.fold(
       (failure) => emit(LoginFailureState(message: failure.message)),
       (userEntity) => emit(LoginSuccessState(userEntity: userEntity)),
+    );
+  }
+
+  Future<void> signInWithGoogle() async {
+    emit(LoginLoadingState());
+    final result = await authRepo.signInWithGoogle();
+    result.fold(
+      (failure) {
+        emit(LoginFailureState(message: failure.message));
+      },
+      (userEntity) {
+        emit(LoginSuccessState(userEntity: userEntity));
+      },
+    );
+  }
+
+  Future<void> signInWithFacebook() async {
+    emit(LoginLoadingState());
+    final result = await authRepo.signInWithFacebook();
+    result.fold(
+      (failure) {
+        emit(LoginFailureState(message: failure.message));
+      },
+      (userEntity) {
+        emit(LoginSuccessState(userEntity: userEntity));
+      },
     );
   }
 }
