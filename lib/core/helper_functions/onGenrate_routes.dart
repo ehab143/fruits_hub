@@ -4,6 +4,8 @@ import 'package:fruits_hub/features/auth/presentation/views/register_view.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_hub/features/splash/presentation/views/splash_view.dart';
 
+import '../../features/home/presentation/views/home_view.dart';
+
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routeName:
@@ -15,6 +17,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const OnBoardingView());
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
+    case HomeView.routeName:
+      return MaterialPageRoute(builder: (_) => const HomeView());
     default:
       return MaterialPageRoute(builder: (_) => const Placeholder());
   }

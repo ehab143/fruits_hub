@@ -16,7 +16,9 @@ class RegisterViewBodyBlocConsumer extends StatelessWidget {
       listener: (BuildContext context, state) {
         if (state is RegisterFailure) {
           buildErrorBar(context, state.message);
-        } else if (state is RegisterSuccess) {}
+        } else if (state is RegisterSuccess) {
+          Navigator.pop(context);
+        }
       },
       builder: (BuildContext context, state) {
         return ModalProgressHUD(

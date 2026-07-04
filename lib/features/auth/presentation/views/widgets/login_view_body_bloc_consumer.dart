@@ -5,6 +5,7 @@ import 'package:fruits_hub/features/auth/presentation/cubits/login_cubit/login_c
 import 'package:fruits_hub/features/auth/presentation/cubits/login_cubit/login_states.dart';
 import 'package:fruits_hub/features/auth/presentation/views/widgets/build_error_bar.dart';
 
+import '../../../../home/presentation/views/home_view.dart';
 import 'login_view_body.dart';
 
 class LoginViewBodyBlocConsumer extends StatelessWidget {
@@ -15,6 +16,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (BuildContext context, LoginStates state) {
         if (state is LoginSuccessState) {
+          Navigator.pushNamed(context, HomeView.routeName);
         } else if (state is LoginFailureState) {
           buildErrorBar(context, state.message);
         }

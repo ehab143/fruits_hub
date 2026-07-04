@@ -42,6 +42,10 @@ class Assets {
   /// assets/images/page_view_item2_image.svg
   static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.svg";
 
+  /// Assets for imagesProfile
+  /// assets/images/profile.svg
+  static const String imagesProfile = "assets/images/profile.svg";
+
   /// Assets for imagesSplashBottom
   /// assets/images/splash_bottom.svg
   static const String imagesSplashBottom = "assets/images/splash_bottom.svg";
