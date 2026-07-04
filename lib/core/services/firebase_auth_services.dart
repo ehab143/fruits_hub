@@ -93,16 +93,29 @@ class FirebaseAuthServices {
   }
 
   Future<User> signInWithFacebook() async {
-    // Trigger the sign-in flow
-    final LoginResult loginResult = await FacebookAuth.instance.login();
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+      permissions: ['email', 'public_profile'],
+    );
 
-    // Create a credential from the access token
+    final userData = await FacebookAuth.instance.getUserData(
+      fields: "id,name,email",
+    );
+
+    print("Facebook User Data = $userData");
+
     final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
 
-    // Once signed in, return the UserCredential
-    return (await FirebaseAuth.instance.signInWithCredential(
+    final userCredential = await FirebaseAuth.instance.signInWithCredential(
       facebookAuthCredential,
-    )).user!;
+    );
+
+    print("Firebase Email = ${userCredential.user?.email}");
+
+    return userCredential.user!;
+  }
+
+  Future deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
   }
 }
