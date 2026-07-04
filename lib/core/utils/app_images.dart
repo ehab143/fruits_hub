@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAppIcon
   /// assets/images/app_icon.png
   static const String imagesAppIcon = "assets/images/app_icon.png";
@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
+  /// Assets for imagesFilter
+  /// assets/images/filter.svg
+  static const String imagesFilter = "assets/images/filter.svg";
+
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
@@ -32,27 +36,27 @@ class Assets {
 
   /// Assets for imagesPageViewItem1BackgroundImage
   /// assets/images/page_view_item1_backgroundImage.svg
-  static const String imagesPageViewItem1BackgroundImage =
-      "assets/images/page_view_item1_backgroundImage.svg";
+  static const String imagesPageViewItem1BackgroundImage = "assets/images/page_view_item1_backgroundImage.svg";
 
   /// Assets for imagesPageViewItem1Image
   /// assets/images/page_view_item1_image.svg
-  static const String imagesPageViewItem1Image =
-      "assets/images/page_view_item1_image.svg";
+  static const String imagesPageViewItem1Image = "assets/images/page_view_item1_image.svg";
 
   /// Assets for imagesPageViewItem2BackgroundImage
   /// assets/images/page_view_item2_backgroundImage.svg
-  static const String imagesPageViewItem2BackgroundImage =
-      "assets/images/page_view_item2_backgroundImage.svg";
+  static const String imagesPageViewItem2BackgroundImage = "assets/images/page_view_item2_backgroundImage.svg";
 
   /// Assets for imagesPageViewItem2Image
   /// assets/images/page_view_item2_image.svg
-  static const String imagesPageViewItem2Image =
-      "assets/images/page_view_item2_image.svg";
+  static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.svg";
 
   /// Assets for imagesProfile
   /// assets/images/profile.png
   static const String imagesProfile = "assets/images/profile.png";
+
+  /// Assets for imagesSearch
+  /// assets/images/search.svg
+  static const String imagesSearch = "assets/images/search.svg";
 
   /// Assets for imagesSplashBottom
   /// assets/images/splash_bottom.svg
@@ -62,3 +66,4 @@ class Assets {
   /// assets/images/tree_img.svg
   static const String imagesTreeImg = "assets/images/tree_img.svg";
 }
+
