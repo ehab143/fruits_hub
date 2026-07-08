@@ -10,6 +10,22 @@ class Assets {
   /// assets/images/apple.svg
   static const String imagesApple = "assets/images/apple.svg";
 
+  /// Assets for imagesBoldHome
+  /// assets/images/bold/home.svg
+  static const String imagesBoldHome = "assets/images/bold/home.svg";
+
+  /// Assets for imagesBoldProducts
+  /// assets/images/bold/products.svg
+  static const String imagesBoldProducts = "assets/images/bold/products.svg";
+
+  /// Assets for imagesBoldShoppingCart
+  /// assets/images/bold/shopping-cart.svg
+  static const String imagesBoldShoppingCart = "assets/images/bold/shopping-cart.svg";
+
+  /// Assets for imagesBoldUser
+  /// assets/images/bold/user.svg
+  static const String imagesBoldUser = "assets/images/bold/user.svg";
+
   /// Assets for imagesCheck
   /// assets/images/Check.svg
   static const String imagesCheck = "assets/images/Check.svg";
@@ -37,6 +53,22 @@ class Assets {
   /// Assets for imagesNotification
   /// assets/images/notification.svg
   static const String imagesNotification = "assets/images/notification.svg";
+
+  /// Assets for imagesOutlinedHome
+  /// assets/images/outlined/home.svg
+  static const String imagesOutlinedHome = "assets/images/outlined/home.svg";
+
+  /// Assets for imagesOutlinedProducts
+  /// assets/images/outlined/products.svg
+  static const String imagesOutlinedProducts = "assets/images/outlined/products.svg";
+
+  /// Assets for imagesOutlinedShoppingCart
+  /// assets/images/outlined/shopping-cart.svg
+  static const String imagesOutlinedShoppingCart = "assets/images/outlined/shopping-cart.svg";
+
+  /// Assets for imagesOutlinedUser
+  /// assets/images/outlined/user.svg
+  static const String imagesOutlinedUser = "assets/images/outlined/user.svg";
 
   /// Assets for imagesPageViewItem1BackgroundImage
   /// assets/images/page_view_item1_backgroundImage.svg

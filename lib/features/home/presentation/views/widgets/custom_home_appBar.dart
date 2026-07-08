@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hub/core/utils/app_images.dart';
 import 'package:fruits_hub/core/utils/app_text_style.dart';
+import 'package:fruits_hub/core/widgets/notification_widget.dart';
 
 class CustomHomeAppbar extends StatelessWidget {
   const CustomHomeAppbar({super.key});
@@ -20,14 +21,7 @@ class CustomHomeAppbar extends StatelessWidget {
         textAlign: TextAlign.right,
         style: TextStyles.bold16,
       ),
-      trailing: Container(
-        padding: EdgeInsets.all(12),
-        decoration: ShapeDecoration(
-          color: Color(0xffEEF8ED),
-          shape: OvalBorder(),
-        ),
-        child: SvgPicture.asset(Assets.imagesNotification),
-      ),
+      trailing: NotificationWidget(),
     );
   }
 }
