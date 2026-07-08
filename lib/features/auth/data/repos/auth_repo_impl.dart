@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/errors/custom_exception.dart';
 import 'package:fruits_hub/core/errors/failure.dart';
 import 'package:fruits_hub/core/helper_functions/delete_user.dart';
 import 'package:fruits_hub/core/services/data_base_service.dart';
 import 'package:fruits_hub/core/services/firebase_auth_services.dart';
+import 'package:fruits_hub/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_hub/core/utils/backend_endpoints.dart';
 import 'package:fruits_hub/features/auth/data/models/user_model.dart';
 import 'package:fruits_hub/features/auth/domain/entities/user_entity.dart';
@@ -59,6 +62,7 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
       );
       var userEntity = await getUserData(uid: user.uid);
+      await saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
@@ -123,7 +127,7 @@ class AuthRepoImpl extends AuthRepo {
   Future<dynamic> addUserData({required UserEntity user}) async {
     await dataBaseService.addData(
       path: BackendEndpoints.addUserData,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
       docId: user.uid,
     );
   }
@@ -135,6 +139,13 @@ class AuthRepoImpl extends AuthRepo {
       docId: uid,
     );
     return UserModel.fromjson(userData);
+  }
+
+  @override
+  Future<dynamic> saveUserData({required UserEntity user}) {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+
+    return Prefs.setString(kUserData, jsonData);
   }
 }
 
