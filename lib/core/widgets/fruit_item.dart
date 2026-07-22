@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub/core/entities/product_entity.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
-import 'package:fruits_hub/core/utils/app_images.dart';
 import 'package:fruits_hub/core/utils/app_text_style.dart';
+import 'package:fruits_hub/core/widgets/custom%20_network_image.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
-
+  const FruitItem({super.key, required this.productEntity});
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
+    // log('${productEntity.imageUrl}');
     return Container(
       decoration: ShapeDecoration(
         color: const Color(0xFFF3F5F7),
@@ -28,15 +30,22 @@ class FruitItem extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 20),
-                Image.asset(Assets.imagesTest),
-                const SizedBox(height: 24),
+                productEntity.imageUrl != null
+                    ? Flexible(
+                        child: CustomNetworkImage(
+                          imageUrl: productEntity.imageUrl!,
+                        ),
+                      )
+                    : Container(color: Colors.grey, width: 100, height: 100),
+
+                const SizedBox(height: 15),
                 ListTile(
-                  title: Text('بطيخ', style: TextStyles.semiBold13),
+                  title: Text(productEntity.name, style: TextStyles.semiBold13),
                   subtitle: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '20جنية',
+                          text: '${productEntity.price} جنية',
                           style: TextStyles.bold13.copyWith(
                             color: AppColors.secondaryColor,
                           ),

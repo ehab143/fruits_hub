@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/utils/app_text_style.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_grid_view.dart';
+import 'package:fruits_hub/features/home/presentation/views/widgets/products_grid_view.dart';
 
 import '../../../../../core/widgets/best_selling_app_bar.dart';
 
@@ -24,7 +24,7 @@ class BestSellingViewBody extends StatelessWidget {
               ],
             ),
           ),
-          BestSellingGridView(),
+          ProductsGridView(products: []),
         ],
       ),
     );

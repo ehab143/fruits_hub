@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/constants.dart';
-import 'package:fruits_hub/core/widgets/custom_search_text_field.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_grid_view.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_header.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/custom_home_appBar.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/featured_list_view_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
+import '../../../../../constants.dart';
+import '../../../../../core/cubits/login_cubit/products_cubit.dart';
+import '../../../../../core/widgets/custom_search_text_field.dart';
+import 'products_grid_view.dart';
+import 'products_grid_view_bloc_builder.dart';
+import 'best_selling_header.dart';
+import 'custom_home_appBar.dart';
+import 'featured_list_view_item.dart';
+
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    context.read<ProductsCubit>().getBestSellingProducts();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +47,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
 
-          BestSellingGridView(),
+          ProductsGridViewBlocBuilder(),
         ],
       ),
     );
